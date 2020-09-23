@@ -1,0 +1,26 @@
+site_name: EVAdb
+site_description: EVAdb - Exome Variant Analysis database documentation
+
+repo_name: EVAdb Docs
+repo_url: https://github.com/brand-fabian/evadb-docs
+edit_url: 'edit/master/bih-cluster/docs/'
+
+theme: material
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - def_list
+
+nav:
+  - Home: index.md
+  - Software Architecture: architecture.md
+  - Installation:
+    - Docker:
+      - Prerequisites: installation/docker/prerequisites.md
+      - Download: installation/docker/download.md
+      - Build: installation/docker/build.md
+      - Configuration: installation/docker/configuration.md
+    - Native Installation:
+      - Installation: installation/native/index.md
