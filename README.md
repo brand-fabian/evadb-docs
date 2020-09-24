@@ -24,3 +24,14 @@ live in your browser.
     mkdocs serve 
     # use `mkdocs serve -a 0.0.0.0:8000` if you want to listen on interfaces
     # other than loopback/localhost
+
+Please keep in mind that to add new pages to the documentation, you have to
+enter their name and source file in `evadb/mkdocs.yml`.
+
+## Libraries
+
+This documentation is built with `mkdocs` and its `mkdocs-material` theme. For
+valid markdown syntax and examples, please see their documentations:
+
+* https://www.mkdocs.org/user-guide/writing-your-docs/
+* https://squidfunk.github.io/mkdocs-material/reference/abbreviations/

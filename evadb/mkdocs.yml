@@ -11,7 +11,9 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.highlight
   - def_list
+  - attr_list
 
 nav:
   - Home: index.md
@@ -20,7 +22,16 @@ nav:
     - Docker:
       - Prerequisites: installation/docker/prerequisites.md
       - Download: installation/docker/download.md
-      - Build: installation/docker/build.md
       - Configuration: installation/docker/configuration.md
+      - Build: installation/docker/build.md
+      - First Start: installation/docker/run.md
     - Native Installation:
       - Installation: installation/native/index.md
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+  - js/tables.js
+  - js/config.js
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css

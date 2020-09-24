@@ -2,7 +2,7 @@
 
 !!! warning "Under Construction"
     This documentation is under construction. Expect regular changes and
-    updates.
+    updates or missing sections.
 
 Welcome to the documentation of EVAdb. The **E**xome **V**ariant **A**nalysis
 Database serves to streamline analysis of exome cases for the users. In this

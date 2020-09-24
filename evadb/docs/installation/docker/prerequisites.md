@@ -60,3 +60,46 @@ docker, typically adding the active user to the `docker` group. Make sure
 you follow these steps as well [(postinstallation)](https://docs.docker.com/engine/install/linux-postinstall/).
 To be able to continue with the installation guide, please also install
 [docker-compose](https://docs.docker.com/compose/install/).
+
+## SSL Certificates
+
+!!! tldr "SSL Certificates"
+    Obtaining a certificate and private key pair is necessary to host EVAdb.
+    Make sure you have obtained a pair and named them `evadb.crt` and
+    `evadb.key` to run the application.
+
+SSL is used in `https` to encrypt connections to remote servers. In order to
+validate the servers identity to the client, the server needs to present a
+valid certificate. Valid certificates can be obtained from [letsencrypt](https://letsencrypt.org)
+or your local universities IT department. To run EVAdb, you have to supply a
+certificate for use by the web service.
+
+!!! hint "Letsencrypt"
+    In order to use the following letsencrypt description, your server needs
+    to be reachable from the Internet and have a known DNS entry.
+
+In order to request a valid certificate from letsencrypt, you can use the [certbot](https://certbot.eff.org)
+application. It can be installed on any UNIX-like machine through the package
+manager of choice. Once installed, use
+
+``` bash
+certbot certonly --standalone
+```
+
+to get a certificate for your server.
+
+For development purposes, it is enough to create a self-signed certificate.
+On UNIX-like machines the openssl tool can be used to create a self-signed
+certificate for use with EVAdb.
+
+``` bash
+openssl req -x509 -newkey rsa:4096 \
+    -keyout <KEY_NAME> \
+    -out <CERT_NAME> \
+    -days 365 \
+    --nodes
+```
+
+This will print your certificate and its private key at `KEY_NAME` and
+`CERT_NAME` respectively. To supply the certificate and private key to evadb,
+they have to be named `evadb.crt` and `evadb.key` respectively.
