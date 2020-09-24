@@ -36,6 +36,8 @@
     
     
     
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+    
     
       
     
@@ -50,6 +52,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#docker-container" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -267,6 +274,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../configuration/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -275,9 +294,70 @@
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Build
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
     <a href="./" title="Build" class="md-nav__link md-nav__link--active">
       Build
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-container" class="md-nav__link">
+    Docker Container
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evadb-and-evadb-admin-containers" class="md-nav__link">
+    EVAdb and EVAdb Admin Containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init-container" class="md-nav__link">
+    Init Container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annotation-container" class="md-nav__link">
+    Annotation Container
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    Build
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -288,8 +368,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../configuration.md" title="Configuration" class="md-nav__link">
-      Configuration
+    <a href="../run/" title="First Start" class="md-nav__link">
+      First Start
     </a>
   </li>
 
@@ -349,6 +429,68 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-container" class="md-nav__link">
+    Docker Container
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evadb-and-evadb-admin-containers" class="md-nav__link">
+    EVAdb and EVAdb Admin Containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init-container" class="md-nav__link">
+    Init Container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annotation-container" class="md-nav__link">
+    Annotation Container
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    Build
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -364,8 +506,177 @@
                 
                   <h1>Build</h1>
                 
-                <pre><code>docker-compose build
-</code></pre>
+                <h2 id="docker-container">Docker Container</h2>
+<div class="admonition tldr">
+<p class="admonition-title">Docker Container</p>
+<p>The application, as presented, utilizes multiple docker containers for the
+components.</p>
+<ul>
+<li>mariadb</li>
+<li>EVAdb (docker/snv-hg19p)</li>
+<li>EVAdb admin (docker/snvedit)</li>
+<li>init container (helperscripts)</li>
+<li>annotation (annotation)</li>
+</ul>
+</div>
+<p>The EVAdb application consists of two user-facing web interfaces hosted through
+an Apache Webserver as cgi scripts. To run the application, we also setup the
+mysql database (mariadb), an init container and an annotation container. The
+primary use-case of the init container is creation of the database, initial
+user setup and import of external databases. It should be run on first startup
+and whenever external data needs changing. The annotation container is intended
+to be used for the import of vcf files from your standard GATK best practices
+pipeline.</p>
+<p>The setup of all containers is done through the docker-compose script 
+(<code>docker-compose.yml</code>). Below, we will explain the basic setup of each 
+containers.</p>
+<div class="admonition hint">
+<p class="admonition-title">docker-compose run</p>
+<p>To execute a tool in a running container of our setup, please use either</p>
+<div class="highlight"><pre><span></span><code>docker-compose <span class="nb">exec</span> <span class="o">[</span>db<span class="p">|</span>evadb_user<span class="p">|</span>evadb_admin<span class="p">|</span>evadb_init<span class="p">|</span>annotation<span class="o">]</span> bash
+</code></pre></div>
+
+<p>if the container is currently running, or</p>
+<div class="highlight"><pre><span></span><code>docker-compose run <span class="o">[</span>db<span class="p">|</span>evadb_user<span class="p">|</span>evadb_admin<span class="p">|</span>evadb_init<span class="p">|</span>annotation<span class="o">]</span> bash
+</code></pre></div>
+
+<p>if the container is currently shut off. For example, to inspect the
+database in detail, one can use</p>
+<div class="highlight"><pre><span></span><code>docker-compose <span class="nb">exec</span> db mysql -u &lt;USER&gt; -p&lt;PW&gt;
+</code></pre></div>
+
+<p>to get a mysql shell in the container.</p>
+</div>
+<h3 id="evadb-and-evadb-admin-containers">EVAdb and EVAdb Admin Containers</h3>
+<p>Both containers are extended from standard apache/httpd Dockerfiles. We support
+some environment variables to supply the database user and password data. For
+each container, the application will run as https web service on port 443 which
+can be forwarded by standard docker syntax. By default, the user facing filter
+application will take port 443 of the host and the admin application will use
+port 8443.</p>
+<details class="- hint"><summary>Firewall Setup</summary><p>When running a production setup where access to your EVAdb instance from
+the internet is required it is recommended to run a firewall with <em>only</em>
+port 443 accessible from the outside. In such a setup, you could access
+the admin backend only from your local network or through SSH
+port-forwarding (f.e.)</p>
+</details>
+<div class="admonition danger">
+<p class="admonition-title">SSL Setup</p>
+<p>Both containers require a docker volume to be mounted at the <code>/ssl</code>
+location (can be read-only) containing a certificate and private key file
+for the SSL connection. The files <strong>must</strong> be named <code>evadb.crt</code> and
+<code>evadb.key</code> respectively.</p>
+</div>
+<h3 id="init-container">Init Container</h3>
+<p>The init container will initialize the database. It creates the first user for
+the web interface which can then create other users as well. It is built from
+a standard debian image and installs most software for running the perl scripts
+to setup the database.</p>
+<p>It features two docker-volumes which need to be populated with data for the
+container to work properly.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Volume</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>/library</code></td>
+<td align="left">Hosting pre-downloaded external databases (gnomAD, dbNSFP etc.). See the <a href="https://brand-fabian.github.io/evadb-docs/installation/docker/download/">Download Section</a> for more details.</td>
+</tr>
+<tr>
+<td align="left"><code>/database</code></td>
+<td align="left">Database dumps and sql scripts for database creation. The container uses all scripts from this folder to initialize the database.</td>
+</tr>
+</tbody>
+</table>
+<p>The behaviour of the container can be influenced by setting the <code>IMPORT_*</code> and
+<code>INIT_*</code> environment variables. This is especially useful if only a single 
+third-party dataset should be reimported. Other values than <code>1</code> (e.g. <code>0</code>) will
+turn off the respective part.</p>
+<div class="admonition warning">
+<p class="admonition-title">Database Wipe</p>
+<p>If the Init container is run with <code>INIT_DB=1</code> on an initialized database
+all data is wiped off the installation.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th align="left">Setting</th>
+<th align="center">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">INIT_DB</td>
+<td align="center">1</td>
+<td align="left">Initialize (wipes existing data) the database</td>
+</tr>
+<tr>
+<td align="left">INIT_USER</td>
+<td align="center">1</td>
+<td align="left">Setup admin user and password</td>
+</tr>
+<tr>
+<td align="left">IMPORT_DBNSFP</td>
+<td align="center">1</td>
+<td align="left">Toggle import of Polyphen2 and SIFT</td>
+</tr>
+<tr>
+<td align="left">IMPORT_CADD</td>
+<td align="center">1</td>
+<td align="left">Toggle import of CADD scores</td>
+</tr>
+<tr>
+<td align="left">IMPORT_GNOMAD</td>
+<td align="center">1</td>
+<td align="left">Toggle import of gnomAD</td>
+</tr>
+<tr>
+<td align="left">IMPORT_DGV</td>
+<td align="center">1</td>
+<td align="left">Toggle import of dgv structural variation</td>
+</tr>
+<tr>
+<td align="left">IMPORT_CLINVAR</td>
+<td align="center">1</td>
+<td align="left">Toggle import of clinvar data</td>
+</tr>
+<tr>
+<td align="left">IMPORT_UCSC</td>
+<td align="center">1</td>
+<td align="left">Toggle import of ucsc data</td>
+</tr>
+<tr>
+<td align="left">IMPORT_CDSDB</td>
+<td align="center">1</td>
+<td align="left">Toggle import of coding sequence database</td>
+</tr>
+</tbody>
+</table>
+<h3 id="annotation-container">Annotation Container</h3>
+<p>The annotation container is built from the <a href="https://github.com/mri-ihg/ngs_pipeline.git">ngs-pipeline</a>
+repository. Its primary purpose is enabling the import of vcf files for samples.
+For this, it uses the <code>externalPipelineImport.pl</code> tool as its main interface via
+<code>entrypoint.sh</code>. Data should be provided via the volume <code>/data</code>. The container
+expects library data (such as human reference genomes) at <code>/library</code> and
+databases for annotation at <code>/anno_db</code>.</p>
+<p>How to use this container to import a VCF file will be described in another section.</p>
+<h2 id="build">Build</h2>
+<p>Before the application can be started, application containers have to be built.
+This can be achieved with the following command.</p>
+<div class="highlight"><pre><span></span><code>docker-compose build
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Time</p>
+<p>Building these containers will take some time. Especially the init and
+annotation containers have to install a lot of perl modules and take some
+time before they are ready.</p>
+</div>
                 
               
               
@@ -384,7 +695,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../download/" title="Download" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../configuration/" title="Configuration" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -393,19 +704,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Download
+                Configuration
               </div>
             </div>
           </a>
         
         
-          <a href="../../native/" title="Installation" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../run/" title="First Start" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Installation
+                First Start
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -444,6 +755,14 @@
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+        <script src="../../../js/tables.js"></script>
+      
+        <script src="../../../js/config.js"></script>
       
     
   </body>

@@ -18,7 +18,7 @@
     
     
       
-        <title>Prerequisites - EVAdb</title>
+        <title>Configuration - EVAdb</title>
       
     
     
@@ -54,7 +54,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#prerequisites" class="md-skip">
+        <a href="#configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Prerequisites
+              Configuration
             
           </span>
         </div>
@@ -250,63 +250,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Prerequisites
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" title="Prerequisites" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../prerequisites/" title="Prerequisites" class="md-nav__link">
       Prerequisites
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#physical-infrastructure" class="md-nav__link">
-    Physical Infrastructure
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker" class="md-nav__link">
-    Docker
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssl-certificates" class="md-nav__link">
-    SSL Certificates
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -326,11 +274,49 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../configuration/" title="Configuration" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Configuration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Configuration" class="md-nav__link md-nav__link--active">
       Configuration
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example-env-file" class="md-nav__link">
+    Example .env File
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -430,22 +416,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#physical-infrastructure" class="md-nav__link">
-    Physical Infrastructure
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker" class="md-nav__link">
-    Docker
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssl-certificates" class="md-nav__link">
-    SSL Certificates
+  <a href="#example-env-file" class="md-nav__link">
+    Example .env File
   </a>
   
 </li>
@@ -462,7 +434,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/brand-fabian/evadb-docs/edit/master/docs/installation/docker/prerequisites.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/brand-fabian/evadb-docs/edit/master/docs/installation/docker/configuration.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -470,100 +442,114 @@
                   
                 
                 
-                <h1 id="prerequisites">Prerequisites</h1>
-<p>In order to run the docker version of EVAdb in a secure and performant manner,
-some prerequisites need to be fulfilled. Please make sure that you have a basic
-understanding of docker and how the web works before setting up this website.</p>
-<p>In order to follow setup and usage guides, it is important that you have an
-understanding on docker, SSL certificates (for https) and the performance of
-the system you are hosting your database at.</p>
-<h2 id="physical-infrastructure">Physical Infrastructure</h2>
-<div class="admonition tldr">
-<p class="admonition-title">Hardware Requirements</p>
-<p>To be able to host EVAdb, the hardware must have:</p>
-<ul>
-<li>4TB NVMe/SSD Storage</li>
-</ul>
-<p>Additional performance improvements are gained by utilizing more RAM
-and CPU Power.</p>
-</div>
-<p>EVAdb is meant to host multiple thousand exome cases. As is the case with such
-datasets, even storing only variants will have the database growing to be
-multiple terabytes in size. In order to have a nice user experience for the
-frontend, it is important that the backend database does not bog down even for
-large requests (f.e. all autosomal dominant variants for one sample). To be
-able to scale the amount of data, we recommend a physical server utilizing
-NVMe (or at least SSD) storage technologies. This will greatly increase the
-database performance for all queries. Make sure you have enough storage
-available for the expected amount of data. The initialized application will
-consume around 400GB without any cases added.</p>
-<div class="admonition caution">
-<p class="admonition-title">Spinning Rust</p>
-<p>We advise heavily against running the databse on older HDD type
-storage media. Performance will be abysmal.</p>
-</div>
-<h2 id="docker">Docker</h2>
-<details class="info"><summary>Docker</summary><p>Docker is a isolation technique prevalent in modern software development
-since it allows the automatic deployment of complex software stacks.</p>
-<p>Read more: <a href="https://docs.docker.com/get-started/">Docker Get Started</a></p>
+                <h1 id="configuration">Configuration</h1>
+<p>The original software of EVAdb is not very configurable and does not feature
+any dedicated configuration files. Therefore, the options for configuration
+are very limited. Nevertheless <strong>all</strong> of the following parameters should be
+set in your docker <code>.env</code> file prior to build time.</p>
+<details class="-"><summary>Docker <code>.env</code></summary><p>Make sure you understand the basics behind docker environment variables
+and how the <code>.env</code> file fits in.</p>
+<p>Read more: <a href="https://docs.docker.com/compose/environment-variables/">Environment variables in Compose</a></p>
 </details>
-<div class="admonition tldr">
-<p class="admonition-title">Docker Setup</p>
-<p>To be able to host EVAdb through Docker Images, make sure you have
-installed and correctly configured:</p>
-<ol>
-<li><a href="https://docs.docker.com/engine/install/">Docker</a></li>
-<li><a href="https://docs.docker.com/compose/install/">docker-compose</a></li>
-</ol>
-</div>
-<p>If you desire to install the application via Docker, please familiarize
-yourself with the basic concepts of Docker. To deploy the application, we use
-docker-compose which allows us to deploy the stack of multiple containers
-through use of a single command.</p>
-<p>Please follow the installation instructions for docker on your favorite
-operating system over at <a href="https://docs.docker.com/engine/install/">docker.com</a>.
-Some operating systems might need additional setup after installation of
-docker, typically adding the active user to the <code>docker</code> group. Make sure
-you follow these steps as well <a href="https://docs.docker.com/engine/install/linux-postinstall/">(postinstallation)</a>.
-To be able to continue with the installation guide, please also install
-<a href="https://docs.docker.com/compose/install/">docker-compose</a>.</p>
-<h2 id="ssl-certificates">SSL Certificates</h2>
-<div class="admonition tldr">
-<p class="admonition-title">SSL Certificates</p>
-<p>Obtaining a certificate and private key pair is necessary to host EVAdb.
-Make sure you have obtained a pair and named them <code>evadb.crt</code> and
-<code>evadb.key</code> to run the application.</p>
-</div>
-<p>SSL is used in <code>https</code> to encrypt connections to remote servers. In order to
-validate the servers identity to the client, the server needs to present a
-valid certificate. Valid certificates can be obtained from <a href="https://letsencrypt.org">letsencrypt</a>
-or your local universities IT department. To run EVAdb, you have to supply a
-certificate for use by the web service.</p>
-<div class="admonition hint">
-<p class="admonition-title">Letsencrypt</p>
-<p>In order to use the following letsencrypt description, your server needs
-to be reachable from the Internet and have a known DNS entry.</p>
-</div>
-<p>In order to request a valid certificate from letsencrypt, you can use the <a href="https://certbot.eff.org">certbot</a>
-application. It can be installed on any UNIX-like machine through the package
-manager of choice. Once installed, use</p>
-<div class="highlight"><pre><span></span><code>certbot certonly --standalone
+<p>The following parameters are available to be configured. Please also see the
+example file at the end of this section.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Setting</th>
+<th align="left">Description</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">MYSQL_ROOT_PASSWORD</td>
+<td align="left">Password of the mysql root user</td>
+<td align="left">sup3rs3cur3</td>
+</tr>
+<tr>
+<td align="left">MYSQL_PASSWORD</td>
+<td align="left">Password for the mysql user</td>
+<td align="left">myPass</td>
+</tr>
+<tr>
+<td align="left">MYSQL_USER</td>
+<td align="left">Username for the mysql account</td>
+<td align="left">evadb</td>
+</tr>
+<tr>
+<td align="left">MYSQL_DATABASE</td>
+<td align="left">Standard mysql database</td>
+<td align="left">solexa</td>
+</tr>
+<tr>
+<td align="left">YUBIKEY_ID</td>
+<td align="left">Yubikey ID (if present)</td>
+<td align="left">test</td>
+</tr>
+<tr>
+<td align="left">YUBIKEY_APIKEY</td>
+<td align="left">Yubikey api key</td>
+<td align="left">secr3t</td>
+</tr>
+<tr>
+<td align="left">DATABASE_DIR</td>
+<td align="left">Persistent database storage dir</td>
+<td align="left">/big_storage</td>
+</tr>
+<tr>
+<td align="left">CURRENT_UID</td>
+<td align="left">UID and GID to run the database with normal user permissions</td>
+<td align="left">1000:1000</td>
+</tr>
+<tr>
+<td align="left">CERT_DIR</td>
+<td align="left">Directory where certificates are stored</td>
+<td align="left">/secrets</td>
+</tr>
+<tr>
+<td align="left">INITIAL_USER</td>
+<td align="left">Initial evadb user name</td>
+<td align="left">admin</td>
+</tr>
+<tr>
+<td align="left">INITIAL_USER_PASSWD</td>
+<td align="left">Password for the initial evadb user</td>
+<td align="left">abc123</td>
+</tr>
+<tr>
+<td align="left">ANNO_DB_DIR</td>
+<td align="left">Location of annotation databases (gnomAD, dbNSFP etc.)</td>
+<td align="left">/anno_db</td>
+</tr>
+<tr>
+<td align="left">LIBRARY</td>
+<td align="left">Location for library files (reference genomes etc.)</td>
+<td align="left">/reference</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example-env-file">Example .env File</h2>
+<details class="- hint"><summary>Setting CURRENT_UID</summary><p>To set the <code>CURRENT_UID</code> parameter for your own user, use the result of the command:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>id -u<span class="k">)</span><span class="s2">:</span><span class="k">$(</span>id -g<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
 
-<p>to get a certificate for your server.</p>
-<p>For development purposes, it is enough to create a self-signed certificate.
-On UNIX-like machines the openssl tool can be used to create a self-signed
-certificate for use with EVAdb.</p>
-<div class="highlight"><pre><span></span><code>openssl req -x509 -newkey rsa:4096 <span class="se">\</span>
-    -keyout &lt;KEY_NAME&gt; <span class="se">\</span>
-    -out &lt;CERT_NAME&gt; <span class="se">\</span>
-    -days <span class="m">365</span> <span class="se">\</span>
-    --nodes
+</details>
+<p>The following is an example <code>.env</code> file.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>root_pw
+<span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>user_pass
+<span class="nv">MYSQL_USER</span><span class="o">=</span>evadb
+<span class="nv">MYSQL_DATABASE</span><span class="o">=</span>solexa
+<span class="nv">YUBIKEY_ID</span><span class="o">=</span><span class="nb">test</span>
+<span class="nv">YUBIKEY_APIKEY</span><span class="o">=</span>secr3t
+<span class="nv">DATABASE_DIR</span><span class="o">=</span>/evadb
+<span class="nv">CURRENT_UID</span><span class="o">=</span><span class="m">1000</span>:1000
+<span class="nv">CERT_DIR</span><span class="o">=</span>/home/evadb/secrets/
+<span class="nv">INITIAL_USER</span><span class="o">=</span>admin
+<span class="nv">INITIAL_USER_PASSWD</span><span class="o">=</span>admin_pw
+<span class="nv">ANNO_DB_DIR</span><span class="o">=</span>/annotation_db/
+<span class="nv">LIBRARY</span><span class="o">=</span>/library/
 </code></pre></div>
-
-<p>This will print your certificate and its private key at <code>KEY_NAME</code> and
-<code>CERT_NAME</code> respectively. To supply the certificate and private key to evadb,
-they have to be named <code>evadb.crt</code> and <code>evadb.key</code> respectively.</p>
                 
               
               
@@ -582,7 +568,7 @@ they have to be named <code>evadb.crt</code> and <code>evadb.key</code> respecti
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../../architecture/" title="Software Architecture" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../download/" title="Download" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -591,19 +577,19 @@ they have to be named <code>evadb.crt</code> and <code>evadb.key</code> respecti
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Software Architecture
+                Download
               </div>
             </div>
           </a>
         
         
-          <a href="../download/" title="Download" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../build/" title="Build" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Download
+                Build
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
