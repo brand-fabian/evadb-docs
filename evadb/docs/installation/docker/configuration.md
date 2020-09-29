@@ -29,6 +29,7 @@ example file at the end of this section.
 | INITIAL_USER_PASSWD | Password for the initial evadb user | abc123 |
 | ANNO_DB_DIR | Location of annotation databases (gnomAD, dbNSFP etc.) | /anno_db |
 | LIBRARY | Location for library files (reference genomes etc.) | /reference |
+| DATA_DIR | Directory containing data files for upload (vcf etc.) | /data |
 
 ## Example .env File
 
@@ -55,4 +56,5 @@ INITIAL_USER=admin
 INITIAL_USER_PASSWD=admin_pw
 ANNO_DB_DIR=/annotation_db/
 LIBRARY=/library/
+DATA_DIR=/data/
 ```
