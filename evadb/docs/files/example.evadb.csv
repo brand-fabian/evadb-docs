@@ -1,0 +1,4 @@
+Sample ID,Foreign ID,Pedigree,Comment,Sex,Affected,Organism,Tissue,Disease,Library Type,Read Type,Exome Assay
+76436,76436,B20-0498,TranslateNamse,female,1,human,peripheral blood,Cases,exomic,paired-end,SureSelect60Mbv6
+76443,76443,B20-0498,TranslateNamse,male,0,human,peripheral blood,Controls,exomic,paired-end,SureSelect60Mbv6
+76442,76442,B20-0498,TranslateNamse,female,0,human,peripheral blood,Controls,exomic,paired-end,SureSelect60Mbv6

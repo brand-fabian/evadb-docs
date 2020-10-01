@@ -12,6 +12,8 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.highlight
+  - pymdownx.snippets
+  - pymdownx.keys
   - def_list
   - attr_list
 
@@ -27,6 +29,14 @@ nav:
       - First Start: installation/docker/run.md
     - Native Installation:
       - Installation: installation/native/index.md
+  - Administration Guide:
+    - Quick Start: administration/quick-start.md
+    - Sample Management: administration/sample.md
+    - Variant Annotation: administration/annotation.md
+    - Data Upload: administration/upload.md
+    - User Management: administration/user.md
+    - Diseases and Disease Groups: administration/disease.md
+    - Projects and Cooperations: administration/projects.md
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js

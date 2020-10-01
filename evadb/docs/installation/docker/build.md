@@ -102,6 +102,7 @@ turn off the respective part.
 | IMPORT_CLINVAR | 1 | Toggle import of clinvar data |
 | IMPORT_UCSC | 1 | Toggle import of ucsc data |
 | IMPORT_CDSDB | 1 | Toggle import of coding sequence database |
+| IMPORT_LOF_METRICS | 1 | Toggle import of gnomad scores by gene |
 
 ### Annotation Container
 
