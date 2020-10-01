@@ -35,6 +35,7 @@ columns are mandatory.
 
 ### Example Sample Sheet
 
+#### Table
 
 |Sample ID|Foreign ID|Pedigree|Comment|Sex|Affected|Organism|Tissue|Disease|Library Type|Read Type|Exome Assay|
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
@@ -42,8 +43,10 @@ columns are mandatory.
 |76443|76443|B20-0498|TranslateNamse|male|0|human|peripheral blood|Controls|exomic|paired-end|SureSelect60Mbv6|
 |76442|76442|B20-0498|TranslateNamse|female|0|human|peripheral blood|Controls|exomic|paired-end|SureSelect60Mbv6|
 
-```
---8<-- "../files/example.evadb.csv"
+#### .csv File
+
+``` table
+--8<-- "files/example.evadb.csv"
 ```
 
 ## Entering Family Information

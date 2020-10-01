@@ -5,7 +5,11 @@ repo_name: EVAdb Docs
 repo_url: https://github.com/brand-fabian/evadb-docs
 edit_url: 'edit/master/bih-cluster/docs/'
 
-theme: material
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: blue
 
 markdown_extensions:
   - admonition
@@ -32,8 +36,7 @@ nav:
   - Administration Guide:
     - Quick Start: administration/quick-start.md
     - Sample Management: administration/sample.md
-    - Variant Annotation: administration/annotation.md
-    - Data Upload: administration/upload.md
+    - Variant Annotation and Upload: administration/annotation.md
     - User Management: administration/user.md
     - Diseases and Disease Groups: administration/disease.md
     - Projects and Cooperations: administration/projects.md
