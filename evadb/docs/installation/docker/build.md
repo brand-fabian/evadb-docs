@@ -74,6 +74,12 @@ the web interface which can then create other users as well. It is built from
 a standard debian image and installs most software for running the perl scripts
 to setup the database.
 
+!!! hint "First Startup"
+    On first start, the EVAdb will typically launch against an unitialized
+    database. In order to function properly, at least `INIT_DB` and `INIT_USER`
+    have to be set to `1` to create the database setup and add initial
+    user credentials.
+
 It features two docker-volumes which need to be populated with data for the
 container to work properly.
 
@@ -87,13 +93,13 @@ The behaviour of the container can be influenced by setting the `IMPORT_*` and
 third-party dataset should be reimported. Other values than `1` (e.g. `0`) will
 turn off the respective part.
 
-!!! warning "Database Wipe"
+!!! danger "Database Wipe"
     If the Init container is run with `INIT_DB=1` on an initialized database
     all data is wiped off the installation.
 
 | Setting | Default | Description |
 | :--- | :---: | :--- |
-| INIT_DB | 1 | Initialize (wipes existing data) the database |
+| INIT_DB | 1 | Initialize the database (**wipes existing data**)  |
 | INIT_USER | 1 | Setup admin user and password |
 | IMPORT_DBNSFP | 1 | Toggle import of Polyphen2 and SIFT |
 | IMPORT_CADD | 1 | Toggle import of CADD scores |

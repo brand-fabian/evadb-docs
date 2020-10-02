@@ -3,10 +3,20 @@
 After building the application, starting the whole stack is as simple as
 running the following command.
 
-!!! note "docker-compose File"
+???- note "docker-compose File"
     All `docker-compose` based command lines need to be executed from the
     root directory of the application, where the `docker-compose.yml` is
     located. Otherwise you can rely on standard docker commands.
+
+!!! tip "Controling execution of the init container"
+    The behaviour of the init container can be controlled in a fine-grained
+    manner by utilizing the different switches exposed as environment
+    variables. For a first start, at least `INIT_DB` and `INIT_USER` have to be
+    set to `1`. Additionally, we recommend setting `IMPORT_CDSDB` as otherwise
+    the import process will not fully function.
+
+    Make sure to unset `INIT_DB` and `INIT_USER` after the init container has
+    run once.
 
 ``` bash
 docker-compose up -d
