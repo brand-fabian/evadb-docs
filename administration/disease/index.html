@@ -235,16 +235,28 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../installation/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
-    <label class="md-nav__link" for="nav-3-1">
+    <label class="md-nav__link" for="nav-3-2">
       Docker
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Docker" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-1">
+      <label class="md-nav__title" for="nav-3-2">
         <span class="md-nav__icon md-icon"></span>
         Docker
       </label>
@@ -323,14 +335,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
     
-    <label class="md-nav__link" for="nav-3-2">
+    <label class="md-nav__link" for="nav-3-3">
       Native Installation
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Native Installation" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
+      <label class="md-nav__title" for="nav-3-3">
         <span class="md-nav__icon md-icon"></span>
         Native Installation
       </label>
@@ -457,7 +469,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../projects.md" title="Projects and Cooperations" class="md-nav__link">
+    <a href="../projects/" title="Projects and Cooperations" class="md-nav__link">
       Projects and Cooperations
     </a>
   </li>
@@ -504,6 +516,91 @@
                 
                 
                 <h1 id="diseases-and-disease-groups">Diseases and Disease Groups</h1>
+<p>Diseases and Disease Groups are an important mechanism in EVAdb. Through use of
+these features, the system is able to assemble control groups for each query.
+By default, on each query for autosomal variants the set of variants is checked
+against summary statistics relating to the disease group that the original
+sample is part of. To count the number of occurences of a variant in the
+database, the current disease group is excluded to allow for finding of
+variants that are rare with respect to the general population (we would expect
+a disease causing mutation to be more prevalent in the disease group).</p>
+<div class="admonition hint">
+<p class="admonition-title">Parents</p>
+<p>In many cases, not only the case is sequenced but also the parents. Such
+trio-analysis cases can be handled through the use of diseases as well.
+If desired, it is possible to have parents and samples in different disease
+groups to have parents as controls. Alternatively, they can be set to the
+same disease group so parents are not included in frequency filters for
+the case.</p>
+</div>
+<p>As such, each sample <strong>must</strong> be annotated with a disease when it is created.
+Diseases can be created in the admin application, by using the <code>New disease</code>
+form.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="left">Example</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Name</td>
+<td align="left">Mitochondriopathy</td>
+<td align="left">Name of the disease (used to reference it)</td>
+</tr>
+<tr>
+<td align="left">Symbol</td>
+<td align="left">MT</td>
+<td align="left">Short hand dispayed in some results tables</td>
+</tr>
+<tr>
+<td align="left">OmimID</td>
+<td align="left">590050</td>
+<td align="left">(If available) OmimID corresponding to the disease</td>
+</tr>
+<tr>
+<td align="left">Disease group</td>
+<td align="left">Mitochondrial disease</td>
+<td align="left">Disease group</td>
+</tr>
+</tbody>
+</table>
+<p>Disease groups can not be modified through the application. They are hard-coded
+within the database.</p>
+<details class="-"><summary>Disease group table</summary><p>The disease groups are preset in the mariadb database. The default data is
+included in the <code>exomehg19_diseasegroup.dmp</code> dump. The disease groups can
+be changed by modifying the table <code>exomehg19.diseasegroup</code>. By default, it
+is set by calling the following mysql statement.</p>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">diseasegroup</span><span class="o">`</span>
+<span class="k">VALUES</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Neurological disorder&#39;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;Developmental disorder&#39;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;Eye disease&#39;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;Controls&#39;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;Mitochondrial disease&#39;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;Tumor&#39;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="s1">&#39;Immunological disorder&#39;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="s1">&#39;Heart disease&#39;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="s1">&#39;Lung disease&#39;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="s1">&#39;Dermatological disease&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+</details>
+<p>The available disease groups are:</p>
+<ol>
+<li>Neurological disorder</li>
+<li>Developmental disorder</li>
+<li>Eye disease</li>
+<li>Controls</li>
+<li>Mitochondrial disease</li>
+<li>Tumor</li>
+<li>Immunological disease</li>
+<li>Heart disease</li>
+<li>Lung disease</li>
+<li>Dermatological disease</li>
+</ol>
                 
               
               
@@ -536,6 +633,20 @@
             </div>
           </a>
         
+        
+          <a href="../projects/" title="Projects and Cooperations" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Projects and Cooperations
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>

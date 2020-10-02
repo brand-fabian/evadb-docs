@@ -235,16 +235,28 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../installation/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
-    <label class="md-nav__link" for="nav-3-1">
+    <label class="md-nav__link" for="nav-3-2">
       Docker
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Docker" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-1">
+      <label class="md-nav__title" for="nav-3-2">
         <span class="md-nav__icon md-icon"></span>
         Docker
       </label>
@@ -323,14 +335,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
     
-    <label class="md-nav__link" for="nav-3-2">
+    <label class="md-nav__link" for="nav-3-3">
       Native Installation
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Native Installation" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
+      <label class="md-nav__title" for="nav-3-3">
         <span class="md-nav__icon md-icon"></span>
         Native Installation
       </label>
@@ -396,9 +408,59 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Quick Start
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
     <a href="./" title="Quick Start" class="md-nav__link md-nav__link--active">
       Quick Start
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-cooperation-and-project" class="md-nav__link">
+    Create a Cooperation and Project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-diseases" class="md-nav__link">
+    Create diseases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-a-sample-sheet" class="md-nav__link">
+    Setup a sample sheet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotate-and-upload-your-variants" class="md-nav__link">
+    Annotate and Upload your variants
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -457,7 +519,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../projects.md" title="Projects and Cooperations" class="md-nav__link">
+    <a href="../projects/" title="Projects and Cooperations" class="md-nav__link">
       Projects and Cooperations
     </a>
   </li>
@@ -485,6 +547,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-cooperation-and-project" class="md-nav__link">
+    Create a Cooperation and Project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-diseases" class="md-nav__link">
+    Create diseases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-a-sample-sheet" class="md-nav__link">
+    Setup a sample sheet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotate-and-upload-your-variants" class="md-nav__link">
+    Annotate and Upload your variants
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -504,6 +602,116 @@
                 
                 
                 <h1 id="administration-guide-quick-start">Administration Guide - Quick Start</h1>
+<div class="admonition tldr">
+<p class="admonition-title">Quick-Start</p>
+<p>From running instance to first filter query, the following steps need to
+be taken in-order:</p>
+<ul>
+<li>Create a cooperation</li>
+<li>Create a project</li>
+<li>Create necessary diseases</li>
+<li>Create a sample sheet</li>
+<li>Upload the sample sheet</li>
+<li>Annotate and upload your vcf files</li>
+<li>Filter <code>Autosomal (dominant|recessive)</code> or <code>de-novo</code></li>
+</ul>
+</div>
+<p>Once you started the application and have confirmed that it is in working order,
+you can start to administer your system. This includes setting up users and
+uploading a first dataset to filter for disease causing variants.</p>
+<p>All of the following steps are described in greater detail in the different
+parts of this section. For the impatient, to be able to filter your first case,
+these are the minimal steps you need to do.</p>
+<details class="- hint"><summary>Evaluation</summary><p>As there are many moving parts within EVAdb, especially around the
+annotation side of the application it is good practice to first upload a
+known solved case to test variant filtration and annotation.</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Access</p>
+<p>To follow this guide you need SSH access to the host running EVAdb and
+admin access to both applications (user and admin).</p>
+</div>
+<h2 id="create-a-cooperation-and-project">Create a Cooperation and Project</h2>
+<p>Prior to uploading samples, we need to setup the support structure. Goto
+<code>New cooperation</code> and enter your cooperation details in the form. Typically,
+this will be your name and details. Afterwards create a project and assign your
+new cooperation to the project.</p>
+<p>We assume your cooperation is named <code>Mustermann</code> and the project is called
+<code>EXOME_CASES</code>.</p>
+<h2 id="create-diseases">Create diseases</h2>
+<p>For the sample upload and filter processes to work, we need to create some
+diseases. These tables are not pre-populated. Assuming you start with a single
+cohort of trio-samples it is advisable to set the parents to a different
+disease group than the index cases. Create at least two diseases, one "real"
+disease that can be attributed to one of the disease groups and one for the
+control samples that you assign the disease group <code>Controls</code>.</p>
+<p>A simple, yet unspecific example could be two diseases:</p>
+<ol>
+<li><code>Developmental disorder</code>, <code>DEV</code> (group: <code>Developmental disorder</code>) and</li>
+<li><code>Controls</code>, <code>CTRLS</code> (group: <code>Controls</code>)</li>
+</ol>
+<h2 id="setup-a-sample-sheet">Setup a sample sheet</h2>
+<p>The sample sheet is the most convenient way to define multiple sample objects
+at once. While it is possible to create samples manually or via the LIMS system,
+we recommend using sample sheets as source of truth. Every row in the sample
+sheet defines exactly one sample and all its relevant attributes. Most of the
+columns are mandatory. Upload your sample sheet by using the
+<code>Import external samples</code> form.</p>
+<div class="highlight"><pre><span></span><code>Sample ID,Foreign ID,Pedigree,Comment,Sex,Affected,Organism,Tissue,Disease,Library Type,Read Type,Exome Assay
+76436,76436,B20-0498,TranslateNamse,female,1,human,peripheral blood,Cases,exomic,paired-end,SureSelect60Mbv6
+76443,76443,B20-0498,TranslateNamse,male,0,human,peripheral blood,Controls,exomic,paired-end,SureSelect60Mbv6
+76442,76442,B20-0498,TranslateNamse,female,0,human,peripheral blood,Controls,exomic,paired-end,SureSelect60Mbv6
+</code></pre></div>
+
+<p>The three ID columns <code>Sample ID</code>, <code>Foreign ID</code> and <code>Pedigree</code> are used to
+identify samples. Additionally, since <code>Pedigree</code> is used as family id, when
+the same <code>Pedigree</code> is set for multiple samples, we will be able to define the
+family structure through the web user interface. To be able to use de-novo
+filter and the like it is necessary to specify the family structure by
+modifying the generated sample entries.</p>
+<div class="admonition tip">
+<p class="admonition-title">Disease</p>
+<p>Make sure to set <code>Disease</code> column to the values you used in the previous
+steps.</p>
+</div>
+<h2 id="annotate-and-upload-your-variants">Annotate and Upload your variants</h2>
+<div class="admonition danger">
+<p class="admonition-title">Docker</p>
+<p>The following part is specific to the docker version of EVAdb. When using a
+bare-metal or other installation please adjust the commands.</p>
+</div>
+<p>After defining samples and the family structure for your cohort, the next step
+is uploading the variants. The minimum prerequisite other than the previous
+step is that all data is local to the server that hosts the mariadb container.</p>
+<div class="admonition hint">
+<p class="admonition-title">Database</p>
+<p>Make sure the database is running and able to handle connections using the
+<code>MYSQL_USER</code> username prior to starting the annotation container.</p>
+</div>
+<p>To make your data available inside the container, set <code>DATA_DIR</code> in your <code>.env</code>
+file to the directory containing all vcf files that you wish to upload. If you
+wish to annotate and insert a specific <code>.vcf</code> file, use the following
+procedure. We assume that the vcf file is located at
+<code>/share/data/exomes/C1234.vcf.gz</code> and <code>DATA_DIR=/share/data</code>. Then, we can use
+the following command to upload the variants. This annotation procedure does
+support uploading multi-sample vcf files.</p>
+<details class="- warning"><summary>chr Tags</summary><p>EVAdb expects all contigs to have the <code>chr</code> Prefix. Make sure your contigs
+are named <code>chr1-chrY</code> prior to executing this command.</p>
+<p>A simple command to change contig names would be the following (although
+there are some caveats when changing the reference like that). Set <code>$f</code> to
+your <code>.vcf.gz</code> input and <code>$VCF</code> to the desired output location.</p>
+<div class="highlight"><pre><span></span><code>zcat <span class="nv">$f</span> <span class="p">|</span> awk <span class="s1">&#39;{ if ( $1 ~ &quot;#&quot; ) { print $0 } else { print &quot;chr&quot;$0 } }&#39;</span> &gt; <span class="nv">$VCF</span>
+</code></pre></div>
+
+</details>
+<div class="highlight"><pre><span></span><code>docker-compose run annotation -vcf /data/exomes/C1234.vcf.gz <span class="se">\</span>
+  -sample C1234 <span class="se">\</span>
+  -se hg19_plus
+</code></pre></div>
+
+<p>Depending on the speed of your system the upload of one sample should be done
+in less than ten minutes. Afterwards you can try to filter your variant dataset
+using the tools in the EVAdb user application frontend.</p>
                 
               
               

@@ -235,16 +235,28 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../installation/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
-    <label class="md-nav__link" for="nav-3-1">
+    <label class="md-nav__link" for="nav-3-2">
       Docker
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Docker" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-1">
+      <label class="md-nav__title" for="nav-3-2">
         <span class="md-nav__icon md-icon"></span>
         Docker
       </label>
@@ -323,14 +335,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
     
-    <label class="md-nav__link" for="nav-3-2">
+    <label class="md-nav__link" for="nav-3-3">
       Native Installation
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Native Installation" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
+      <label class="md-nav__title" for="nav-3-3">
         <span class="md-nav__icon md-icon"></span>
         Native Installation
       </label>
@@ -506,7 +518,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../projects.md" title="Projects and Cooperations" class="md-nav__link">
+    <a href="../projects/" title="Projects and Cooperations" class="md-nav__link">
       Projects and Cooperations
     </a>
   </li>
@@ -637,9 +649,10 @@ perl /pipeline/externalPipelineImport.pl -vcf &lt;VCF_FILE&gt; <span class="se">
 
 </details>
 <p>The <code>externalPipelineImport.pl</code> draws most of its runtime information off the
-<code>current.config.xml</code> file. If you do run on bare-metal make sure to set the
-paths in this file such that tool directories and data locations are what is
-required by the tool.</p>
+<code>current.config.xml</code> file. If you are running via docker, all necessary
+configuration parameters are set by the <code>src/make_annotation.sh</code> script.
+If you do run on bare-metal make sure to set the paths in this file such
+that tool directories and data locations are what is required by the tool.</p>
 <h2 id="data-locality">Data Locality</h2>
 <p>With the current iteration of EVAdb and the Docker images all data must be
 local to the EVAdb server. As noticed in the

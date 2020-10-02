@@ -235,16 +235,28 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../installation/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
-    <label class="md-nav__link" for="nav-3-1">
+    <label class="md-nav__link" for="nav-3-2">
       Docker
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Docker" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-1">
+      <label class="md-nav__title" for="nav-3-2">
         <span class="md-nav__icon md-icon"></span>
         Docker
       </label>
@@ -323,14 +335,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
     
-    <label class="md-nav__link" for="nav-3-2">
+    <label class="md-nav__link" for="nav-3-3">
       Native Installation
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Native Installation" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
+      <label class="md-nav__title" for="nav-3-3">
         <span class="md-nav__icon md-icon"></span>
         Native Installation
       </label>
@@ -471,6 +483,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#import-external-sample" class="md-nav__link">
+    Import External Sample
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#entering-family-information" class="md-nav__link">
     Entering Family Information
   </a>
@@ -526,7 +545,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../projects.md" title="Projects and Cooperations" class="md-nav__link">
+    <a href="../projects/" title="Projects and Cooperations" class="md-nav__link">
       Projects and Cooperations
     </a>
   </li>
@@ -597,6 +616,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-external-sample" class="md-nav__link">
+    Import External Sample
+  </a>
   
 </li>
       
@@ -774,6 +800,17 @@ columns are mandatory.</p>
 76442,76442,B20-0498,TranslateNamse,female,0,human,peripheral blood,Controls,exomic,paired-end,SureSelect60Mbv6
 </code></pre></div>
 
+<h2 id="import-external-sample">Import External Sample</h2>
+<p>Once you created your sample sheet, it should be uploaded by using the
+<code>Import external samples</code> form within the admin application.</p>
+<div class="admonition danger">
+<p class="admonition-title">Missing Features</p>
+<p>Some parts of the import external samples form refer to features that are
+currently unavailable within the docker or other external deployments. Make
+sure to set <code>File Extensions</code> to <code>no files</code>, otherwise the import will
+fail.</p>
+</div>
+<p><img :loading="lazy" alt="Upload External Sample" src="../../img/admin-upload-external.png" /></p>
 <h2 id="entering-family-information">Entering Family Information</h2>
 <p>While the pedigree ID for each sample can be specified in the sample sheet,
 the precise family structure can not. For this it is necessary to go through

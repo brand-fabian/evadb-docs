@@ -235,16 +235,28 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../installation/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
-    <label class="md-nav__link" for="nav-3-1">
+    <label class="md-nav__link" for="nav-3-2">
       Docker
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Docker" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-1">
+      <label class="md-nav__title" for="nav-3-2">
         <span class="md-nav__icon md-icon"></span>
         Docker
       </label>
@@ -323,14 +335,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
     
-    <label class="md-nav__link" for="nav-3-2">
+    <label class="md-nav__link" for="nav-3-3">
       Native Installation
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Native Installation" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
+      <label class="md-nav__title" for="nav-3-3">
         <span class="md-nav__icon md-icon"></span>
         Native Installation
       </label>
@@ -363,10 +375,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       Administration Guide
@@ -444,11 +458,56 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../projects.md" title="Projects and Cooperations" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Projects and Cooperations
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Projects and Cooperations" class="md-nav__link md-nav__link--active">
       Projects and Cooperations
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#new-cooperation-form" class="md-nav__link">
+    New Cooperation Form
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-project-form" class="md-nav__link">
+    New Project Form
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -474,6 +533,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#new-cooperation-form" class="md-nav__link">
+    New Cooperation Form
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-project-form" class="md-nav__link">
+    New Project Form
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -484,7 +565,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/brand-fabian/evadb-docs/edit/master/docs/administration/project.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/brand-fabian/evadb-docs/edit/master/docs/administration/projects.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -493,6 +574,32 @@
                 
                 
                 <h1 id="projects-and-cooperations">Projects and Cooperations</h1>
+<p>Projects and Cooperations serve as attribution mechanisms to rellate groups
+of samples and therefore data to individual accounts and apply a basic set
+of user permissions.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>It is mandatory to have at least one project and cooperation available
+prior to first sample upload.</p>
+</div>
+<p>By default, the system does not have any cooperations or projects setup.
+They can be setup through use of the <code>New cooperation</code> and <code>New Project</code> forms respectively.</p>
+<p>Normally, a cooperation refers to a human being that is collaborating with the
+owner of the EVAdb instance by sending data in for example. Other uses include
+setting this to be the absolute owner of the data (in real world terms).</p>
+<p>A project is owned by a cooperation. As such a project is used to identify
+sets of samples in a logical relation to each other. Access control may be
+defined for each project as well as a cooperation. This means that the
+administrator can restrict access to samples even within users having access
+to the overarching cooperation.</p>
+<details class="tip" open="open"><summary>Naming Projects</summary><p>It is recommended to name your projects in upper case with words
+seperated by underscores (<code>_</code>). This way, forms and fields in the
+user application will remain more readable even for bigger cohorts.</p>
+</details>
+<h2 id="new-cooperation-form">New Cooperation Form</h2>
+<p><img :loading="lazy" alt="Cooperation Creation" src="../../img/admin-create-cooperation.png" /></p>
+<h2 id="new-project-form">New Project Form</h2>
+<p><img :loading="lazy" alt="Project Creation" src="../../img/admin-create-project.png" /></p>
                 
               
               
@@ -507,6 +614,27 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../disease/" title="Diseases and Disease Groups" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Diseases and Disease Groups
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
