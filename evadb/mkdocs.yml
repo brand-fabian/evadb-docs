@@ -25,6 +25,7 @@ nav:
   - Home: index.md
   - Software Architecture: architecture.md
   - Installation:
+    - Overview: installation/index.md
     - Docker:
       - Prerequisites: installation/docker/prerequisites.md
       - Download: installation/docker/download.md

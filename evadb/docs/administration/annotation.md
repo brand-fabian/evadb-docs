@@ -53,9 +53,10 @@ docker-compose run annotation -vcf <VCF_FILE> \
     ```
 
 The `externalPipelineImport.pl` draws most of its runtime information off the
-`current.config.xml` file. If you do run on bare-metal make sure to set the
-paths in this file such that tool directories and data locations are what is
-required by the tool.
+`current.config.xml` file. If you are running via docker, all necessary
+configuration parameters are set by the `src/make_annotation.sh` script.
+If you do run on bare-metal make sure to set the paths in this file such
+that tool directories and data locations are what is required by the tool.
 
 ## Data Locality
 

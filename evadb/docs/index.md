@@ -1,6 +1,6 @@
 # Home
 
-!!! warning "Under Construction"
+!!! missing "Under Construction"
     This documentation is under construction. Expect regular changes and
     updates or missing sections.
 
@@ -23,8 +23,8 @@ installed directly on bare-matel or a VM or build and deployed via docker.
 
 ## Content
 
-1. Installation
-2. Setup and Configuration
-3. Maintainance
-  * Data Upload
-4. Usage
+Currently this documentation features:
+
+1. [Software Architecture Overview](architecture.md)
+2. [Installation Instructions](installation/index.md)
+3. [Administration Guide](administration/quick-start.md)

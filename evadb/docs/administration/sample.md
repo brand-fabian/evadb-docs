@@ -49,6 +49,19 @@ columns are mandatory.
 --8<-- "files/example.evadb.csv"
 ```
 
+## Import External Sample
+
+Once you created your sample sheet, it should be uploaded by using the
+`Import external samples` form within the admin application.
+
+!!! danger "Missing Features"
+    Some parts of the import external samples form refer to features that are
+    currently unavailable within the docker or other external deployments. Make
+    sure to set `File Extensions` to `no files`, otherwise the import will
+    fail.
+
+![Upload External Sample](../img/admin-upload-external.png){ :loading=lazy }
+
 ## Entering Family Information
 
 While the pedigree ID for each sample can be specified in the sample sheet,
