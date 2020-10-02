@@ -520,11 +520,19 @@
                 <h1 id="starting-the-application">Starting the Application</h1>
 <p>After building the application, starting the whole stack is as simple as
 running the following command.</p>
-<div class="admonition note">
-<p class="admonition-title">docker-compose File</p>
-<p>All <code>docker-compose</code> based command lines need to be executed from the
+<details class="- note"><summary>docker-compose File</summary><p>All <code>docker-compose</code> based command lines need to be executed from the
 root directory of the application, where the <code>docker-compose.yml</code> is
 located. Otherwise you can rely on standard docker commands.</p>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Controling execution of the init container</p>
+<p>The behaviour of the init container can be controlled in a fine-grained
+manner by utilizing the different switches exposed as environment
+variables. For a first start, at least <code>INIT_DB</code> and <code>INIT_USER</code> have to be
+set to <code>1</code>. Additionally, we recommend setting <code>IMPORT_CDSDB</code> as otherwise
+the import process will not fully function.</p>
+<p>Make sure to unset <code>INIT_DB</code> and <code>INIT_USER</code> after the init container has
+run once.</p>
 </div>
 <div class="highlight"><pre><span></span><code>docker-compose up -d
 </code></pre></div>

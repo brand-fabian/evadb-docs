@@ -691,6 +691,13 @@ for the SSL connection. The files <strong>must</strong> be named <code>evadb.crt
 the web interface which can then create other users as well. It is built from
 a standard debian image and installs most software for running the perl scripts
 to setup the database.</p>
+<div class="admonition hint">
+<p class="admonition-title">First Startup</p>
+<p>On first start, the EVAdb will typically launch against an unitialized
+database. In order to function properly, at least <code>INIT_DB</code> and <code>INIT_USER</code>
+have to be set to <code>1</code> to create the database setup and add initial
+user credentials.</p>
+</div>
 <p>It features two docker-volumes which need to be populated with data for the
 container to work properly.</p>
 <table>
@@ -715,7 +722,7 @@ container to work properly.</p>
 <code>INIT_*</code> environment variables. This is especially useful if only a single 
 third-party dataset should be reimported. Other values than <code>1</code> (e.g. <code>0</code>) will
 turn off the respective part.</p>
-<div class="admonition warning">
+<div class="admonition danger">
 <p class="admonition-title">Database Wipe</p>
 <p>If the Init container is run with <code>INIT_DB=1</code> on an initialized database
 all data is wiped off the installation.</p>
@@ -732,7 +739,7 @@ all data is wiped off the installation.</p>
 <tr>
 <td align="left">INIT_DB</td>
 <td align="center">1</td>
-<td align="left">Initialize (wipes existing data) the database</td>
+<td align="left">Initialize the database (<strong>wipes existing data</strong>)</td>
 </tr>
 <tr>
 <td align="left">INIT_USER</td>
