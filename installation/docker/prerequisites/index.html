@@ -674,15 +674,15 @@ manager of choice. Once installed, use</p>
 On UNIX-like machines the openssl tool can be used to create a self-signed
 certificate for use with EVAdb.</p>
 <div class="highlight"><pre><span></span><code>openssl req -x509 -newkey rsa:4096 <span class="se">\</span>
-    -keyout &lt;KEY_NAME&gt; <span class="se">\</span>
-    -out &lt;CERT_NAME&gt; <span class="se">\</span>
+    -keyout evadb.key <span class="se">\</span>
+    -out  evadb.crt<span class="se">\</span>
     -days <span class="m">365</span> <span class="se">\</span>
     --nodes
 </code></pre></div>
 
-<p>This will print your certificate and its private key at <code>KEY_NAME</code> and
-<code>CERT_NAME</code> respectively. To supply the certificate and private key to evadb,
-they have to be named <code>evadb.crt</code> and <code>evadb.key</code> respectively.</p>
+<p>This will print your certificate and its private key at <code>evadb.key</code> and
+<code>evadb.crt</code> respectively. These should be placed in the secrets folder, that
+will be passed into the docker-containers for the user and admin frontends.</p>
                 
               
               
