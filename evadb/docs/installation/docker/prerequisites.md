@@ -94,12 +94,12 @@ certificate for use with EVAdb.
 
 ``` bash
 openssl req -x509 -newkey rsa:4096 \
-    -keyout <KEY_NAME> \
-    -out <CERT_NAME> \
+    -keyout evadb.key \
+    -out  evadb.crt\
     -days 365 \
     --nodes
 ```
 
-This will print your certificate and its private key at `KEY_NAME` and
-`CERT_NAME` respectively. To supply the certificate and private key to evadb,
-they have to be named `evadb.crt` and `evadb.key` respectively.
+This will print your certificate and its private key at `evadb.key` and
+`evadb.crt` respectively. These should be placed in the secrets folder, that
+will be passed into the docker-containers for the user and admin frontends.
