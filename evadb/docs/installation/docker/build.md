@@ -1,3 +1,20 @@
+## Building the containers
+
+Before the application can be started, application containers have to be built.
+This can be achieved with the following command.
+
+``` bash
+docker-compose build
+```
+
+!!! note "Time"
+    Building these containers will take some time. Especially the init and
+    annotation containers have to install a lot of perl modules and take some
+    time before they are ready.
+
+Refer to the next section for further details on individual docker containers
+and their purpose.
+
 ## Docker Container
 
 !!! tldr "Docker Container"
@@ -120,17 +137,3 @@ expects library data (such as human reference genomes) at `/library` and
 databases for annotation at `/anno_db`.
 
 How to use this container to import a VCF file will be described in another section.
-
-## Build
-
-Before the application can be started, application containers have to be built.
-This can be achieved with the following command.
-
-``` bash
-docker-compose build
-```
-
-!!! note "Time"
-    Building these containers will take some time. Especially the init and
-    annotation containers have to install a lot of perl modules and take some
-    time before they are ready.
