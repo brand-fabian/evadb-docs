@@ -462,6 +462,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#post-import" class="md-nav__link">
+    Post-Import
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scripts" class="md-nav__link">
     Scripts
   </a>
@@ -555,6 +562,13 @@
         <li class="md-nav__item">
   <a href="#data-locality" class="md-nav__link">
     Data Locality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-import" class="md-nav__link">
+    Post-Import
   </a>
   
 </li>
@@ -666,6 +680,31 @@ experiments to host this data. This brings two advantages, first you spare
 the database disk from additional stress (it will be under heavy load on sample
 import) and additionally you can use cheaper mass storage media to host the 
 bulk (e.g. <code>.bam</code> or <code>.fq.gz</code>) of your data.</p>
+<h2 id="post-import">Post-Import</h2>
+<p>After variants have been imported into the database they can be queried using
+the standard search tools (e.g. autosomal dominant, autosomal recessive).
+However, a big part of the filtering capability is derived from in-house
+frequencies built into the database. Since the system does not compute these
+frequencies after every import, this has to be done manually.</p>
+<p>To update variant frequencies in the database, i.e. count the number of
+occurences of a snp per disease group, use the following snippet.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Execute from project root</span>
+<span class="c1"># Drop to the annotation container</span>
+docker-compose run annotation bash
+<span class="c1"># Perform counting of snv and inserting into the proper tables</span>
+/pipeline/doAfterImport.pl -se hg19_plus -s <span class="m">40</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Cron Job</p>
+<p>Since this job has to be run regularly, it is also a good fit to run as a
+cron job. You can add it as script via <code>crontab -e</code> to run once every week,
+or more often.</p>
+</div>
+<details class="- hint"><summary>Post Import init-Container</summary><p>In principle, the process above can also be started from the
+init-Container. If you intend to do so, make sure to modify the
+<code>config.xml</code> file accordingly.</p>
+</details>
 <h2 id="scripts">Scripts</h2>
 <h3 id="importvcfsh">importVCF.sh</h3>
 <p>To upload many samples in quick succession, we use the following script.</p>
