@@ -24,9 +24,9 @@ docker-compose up -d
 
 After some time, all containers will be started and isolated and your instance
 of EVAdb should be available at
-[https://localhost:443/cgi-bin/login.pl](https://localhost:443) 
+[User Login](https://localhost:443/cgi-bin/login.pl)
 and
-[https://localhost:8443/cgi-bin/login.pl](https://localhost:8443).
+[Admin Login](https://localhost:8443/cgi-bin/login.pl).
 If you are running on a remote server, you have to substitute localhost for
 the actual server name.
 
