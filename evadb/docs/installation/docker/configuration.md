@@ -3,7 +3,8 @@
 The original software of EVAdb is not very configurable and does not feature
 any dedicated configuration files. Therefore, the options for configuration
 are very limited. Nevertheless **all** of the following parameters should be
-set in your docker `.env` file prior to build time.
+set in your docker `.env` file prior to build time. The `.env` should be located
+in the project root, where the `docker-compose` commands will be executed.
 
 ???- "Docker `.env`"
     Make sure you understand the basics behind docker environment variables
@@ -40,7 +41,7 @@ example file at the end of this section.
     echo "$(id -u):$(id -g)"
     ```
 
-The following is an example `.env` file.
+The following is an example `.env` file. Place it in the project root directory.
 
 ``` bash
 MYSQL_ROOT_PASSWORD=root_pw

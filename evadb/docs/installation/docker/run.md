@@ -24,25 +24,30 @@ docker-compose up -d
 
 After some time, all containers will be started and isolated and your instance
 of EVAdb should be available at
-[https://localhost:443/cgi-bin/login.pl](https://localhost:443) 
+[User Login](https://localhost:443/cgi-bin/login.pl)
 and
-[https://localhost:8443/cgi-bin/login.pl](https://localhost:8443).
+[Admin Login](https://localhost:8443/cgi-bin/login.pl).
 If you are running on a remote server, you have to substitute localhost for
 the actual server name.
 
 If there are trouble getting a response from the server, you can use
 
 ``` bash
-docker-compose logs [-f] [CONTAINER_NAME]
+docker-compose logs [-f] [SERVICE_NAME]
 ```
 
-to inspect the logs of all containers (if `CONTAINER_NAME` is omitted) or 
-specific containers (supply the name). For further troubleshooting, it is 
-possible to descend into the containers using the following commands.
+to inspect the logs of all services (if `SERVICE_NAME` is omitted) or 
+specific services (supply the name). For further troubleshooting, it is 
+possible to descend into the services using the following commands.
 
 ``` bash
-docker-compose exec [CONTAINER_NAME] [TOOL] # If the container is still running
-docker-compose run [CONTAINER_NAME] [TOOL] # If the container stopped
+docker-compose exec [SERVICE_NAME] [TOOL] # If the service is still running
+docker-compose run [SERVICE_NAME] [TOOL] # If the service stopped
 ```
 
 To inspect the state of your container setup, please use `docker-compose ps`.
+
+!!! note "Container ≠ Service"
+    Container obtained from ps are not the same thing as service names used by
+    exec/run/logs. Refer to the correct service names in the
+    `docker-compose.yml` file.
