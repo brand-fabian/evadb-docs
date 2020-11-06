@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker-container" class="md-skip">
+        <a href="#building-the-containers" class="md-skip">
           Skip to content
         </a>
       
@@ -336,6 +336,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#building-the-containers" class="md-nav__link">
+    Building the containers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#docker-container" class="md-nav__link">
     Docker Container
   </a>
@@ -366,13 +373,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#build" class="md-nav__link">
-    Build
-  </a>
   
 </li>
       
@@ -563,6 +563,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#building-the-containers" class="md-nav__link">
+    Building the containers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#docker-container" class="md-nav__link">
     Docker Container
   </a>
@@ -596,13 +603,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#build" class="md-nav__link">
-    Build
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -625,7 +625,21 @@
                 
                   <h1>Build</h1>
                 
-                <h2 id="docker-container">Docker Container</h2>
+                <h2 id="building-the-containers">Building the containers</h2>
+<p>Before the application can be started, application containers have to be built.
+This can be achieved with the following command.</p>
+<div class="highlight"><pre><span></span><code>docker-compose build
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Time</p>
+<p>Building these containers will take some time. Especially the init and
+annotation containers have to install a lot of perl modules and take some
+time before they are ready.</p>
+</div>
+<p>Refer to the next section for further details on individual docker containers
+and their purpose.</p>
+<h2 id="docker-container">Docker Container</h2>
 <div class="admonition tldr">
 <p class="admonition-title">Docker Container</p>
 <p>The application, as presented, utilizes multiple docker containers for the
@@ -796,18 +810,6 @@ For this, it uses the <code>externalPipelineImport.pl</code> tool as its main in
 expects library data (such as human reference genomes) at <code>/library</code> and
 databases for annotation at <code>/anno_db</code>.</p>
 <p>How to use this container to import a VCF file will be described in another section.</p>
-<h2 id="build">Build</h2>
-<p>Before the application can be started, application containers have to be built.
-This can be achieved with the following command.</p>
-<div class="highlight"><pre><span></span><code>docker-compose build
-</code></pre></div>
-
-<div class="admonition note">
-<p class="admonition-title">Time</p>
-<p>Building these containers will take some time. Especially the init and
-annotation containers have to install a lot of perl modules and take some
-time before they are ready.</p>
-</div>
                 
               
               
