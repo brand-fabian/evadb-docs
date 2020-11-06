@@ -565,7 +565,8 @@
 <p>The original software of EVAdb is not very configurable and does not feature
 any dedicated configuration files. Therefore, the options for configuration
 are very limited. Nevertheless <strong>all</strong> of the following parameters should be
-set in your docker <code>.env</code> file prior to build time.</p>
+set in your docker <code>.env</code> file prior to build time. The <code>.env</code> should be located
+in the project root, where the <code>docker-compose</code> commands will be executed.</p>
 <details class="-"><summary>Docker <code>.env</code></summary><p>Make sure you understand the basics behind docker environment variables
 and how the <code>.env</code> file fits in.</p>
 <p>Read more: <a href="https://docs.docker.com/compose/environment-variables/">Environment variables in Compose</a></p>
@@ -659,7 +660,7 @@ example file at the end of this section.</p>
 </code></pre></div>
 
 </details>
-<p>The following is an example <code>.env</code> file.</p>
+<p>The following is an example <code>.env</code> file. Place it in the project root directory.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>root_pw
 <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>user_pass
 <span class="nv">MYSQL_USER</span><span class="o">=</span>evadb
