@@ -74,6 +74,30 @@ the database disk from additional stress (it will be under heavy load on sample
 import) and additionally you can use cheaper mass storage media to host the 
 bulk (e.g. `.bam` or `.fq.gz`) of your data.
 
+## Post-Import
+
+After variants have been imported into the database they can be queried using
+the standard search tools (e.g. autosomal dominant, autosomal recessive).
+However, a big part of the filtering capability is derived from in-house
+frequencies built into the database. Since the system does not compute these
+frequencies after every import, this has to be done manually.
+
+To update variant frequencies in the database, i.e. count the number of
+occurences of a snp per disease group, use the following snippet.
+
+``` bash
+# Execute from project root
+# Drop to the annotation container
+docker-compose run annotation bash
+# Perform counting of snv and inserting into the proper tables
+/pipeline/doAfterImport.pl -se hg19_plus -s 40
+```
+
+!!! hint "Post Import init-Container"
+    In principle, the process above can also be started from the
+    init-Container. If you intend to do so, make sure to modify the
+    `config.xml` file accordingly.
+
 ## Scripts
 
 ### importVCF.sh

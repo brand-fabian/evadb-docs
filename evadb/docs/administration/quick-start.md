@@ -120,3 +120,11 @@ docker-compose run annotation -vcf /data/exomes/C1234.vcf.gz \
 Depending on the speed of your system the upload of one sample should be done
 in less than ten minutes. Afterwards you can try to filter your variant dataset
 using the tools in the EVAdb user application frontend.
+
+Finally, fill the frequency tables with information, s.t. variant filters can
+work with the in-house data.
+
+``` bash
+docker-compose run annotation bash
+/pipeline/doAfterImport.pl -se hg19_plus -s 40
+```
