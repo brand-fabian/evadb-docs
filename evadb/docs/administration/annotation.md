@@ -93,7 +93,12 @@ docker-compose run annotation bash
 /pipeline/doAfterImport.pl -se hg19_plus -s 40
 ```
 
-!!! hint "Post Import init-Container"
+!!! note "Cron Job"
+    Since this job has to be run regularly, it is also a good fit to run as a
+    cron job. You can add it as script via `crontab -e` to run once every week,
+    or more often.
+
+???- hint "Post Import init-Container"
     In principle, the process above can also be started from the
     init-Container. If you intend to do so, make sure to modify the
     `config.xml` file accordingly.
